@@ -1,28 +1,24 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Atlas Showcase",
   description: "Cinematic memory storytelling",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Atlas Showcase",
+  },
 };
 
 export const viewport = {
-  themeColor: "#0b0b10",
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#050507",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en">
       <body>{children}</body>
     </html>
   );
