@@ -67,7 +67,9 @@ export default function Experience() {
   return (
     <main className="main">
 
-      {/* BACKGROUND ORBS */}
+      <div className="noise"></div>
+
+      {/* ORBS */}
       <div className="orb orb1"></div>
       <div className="orb orb2"></div>
       <div className="orb orb3"></div>
@@ -132,14 +134,24 @@ export default function Experience() {
       <style jsx>{`
         .main {
           background:
-            radial-gradient(circle at top left, #11162b 0%, #050507 45%),
-            radial-gradient(circle at bottom right, #180a22 0%, #050507 50%),
+            radial-gradient(circle at top left, #12172c 0%, #050507 45%),
+            radial-gradient(circle at bottom right, #1a0b22 0%, #050507 50%),
             #050507;
 
           color: white;
           overflow-x: hidden;
           position: relative;
           isolation: isolate;
+        }
+
+        .noise {
+          position: fixed;
+          inset: 0;
+          opacity: 0.035;
+          background-image:
+            url("https://grainy-gradients.vercel.app/noise.svg");
+          pointer-events: none;
+          z-index: 1;
         }
 
         /* ORBS */
@@ -151,12 +163,13 @@ export default function Experience() {
           z-index: 0;
           animation: float 18s ease-in-out infinite;
           mix-blend-mode: screen;
+          will-change: transform;
         }
 
         .orb1 {
           width: 520px;
           height: 520px;
-          background: rgba(110, 90, 255, 0.45);
+          background: rgba(110, 90, 255, 0.38);
           top: -140px;
           left: -120px;
           filter: blur(110px);
@@ -165,7 +178,7 @@ export default function Experience() {
         .orb2 {
           width: 420px;
           height: 420px;
-          background: rgba(0, 210, 255, 0.32);
+          background: rgba(0, 210, 255, 0.28);
           right: -120px;
           top: 35%;
           filter: blur(100px);
@@ -175,7 +188,7 @@ export default function Experience() {
         .orb3 {
           width: 360px;
           height: 360px;
-          background: rgba(255, 70, 180, 0.25);
+          background: rgba(255, 70, 180, 0.22);
           bottom: -120px;
           left: 25%;
           filter: blur(100px);
@@ -198,39 +211,48 @@ export default function Experience() {
 
         .heroGlow {
           position: absolute;
-          width: 600px;
-          height: 600px;
+          width: 700px;
+          height: 700px;
           background: rgba(120,120,255,0.08);
-          filter: blur(120px);
+          filter: blur(140px);
           border-radius: 50%;
           z-index: -1;
         }
 
         .mini {
           letter-spacing: 8px;
-          opacity: 0.65;
+          opacity: 0.7;
           margin-bottom: 24px;
           font-size: 0.9rem;
         }
 
         h1 {
-          font-size: clamp(4rem, 9vw, 7.5rem);
-          line-height: 0.92;
-          max-width: 980px;
-          margin-bottom: 32px;
-          font-weight: 700;
-          letter-spacing: -3px;
+          font-size: clamp(4.4rem, 9vw, 8rem);
+          line-height: 0.9;
+          max-width: 1050px;
+          margin-bottom: 34px;
+          font-weight: 800;
+          letter-spacing: -4px;
+
+          background: linear-gradient(
+            to bottom,
+            #ffffff,
+            rgba(255,255,255,0.82)
+          );
+
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         .heroText {
-          max-width: 820px;
-          font-size: 1.35rem;
+          max-width: 850px;
+          font-size: 1.42rem;
           line-height: 2;
           opacity: 0.84;
         }
 
         .scroll {
-          margin-top: 60px;
+          margin-top: 70px;
           opacity: 0.45;
           letter-spacing: 4px;
           font-size: 0.8rem;
@@ -244,8 +266,8 @@ export default function Experience() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 100px;
-          padding: 120px 8%;
+          gap: 110px;
+          padding: 140px 9%;
           position: relative;
           z-index: 2;
         }
@@ -256,29 +278,28 @@ export default function Experience() {
 
         .imageWrap {
           flex: 1;
-          max-width: 460px;
-          position: relative;
+          max-width: 470px;
         }
 
         .imageWrap img {
           width: 100%;
-          border-radius: 30px;
+          border-radius: 32px;
           object-fit: cover;
 
           box-shadow:
-            0 30px 90px rgba(0,0,0,0.75),
-            0 0 60px rgba(255,255,255,0.05);
+            0 30px 100px rgba(0,0,0,0.8),
+            0 0 60px rgba(255,255,255,0.04);
 
-          transition: all 0.5s ease;
+          transition: all 0.6s ease;
         }
 
         .imageWrap img:hover {
-          transform: scale(1.03) translateY(-6px);
+          transform: scale(1.03) translateY(-8px);
         }
 
         .textWrap {
           flex: 1;
-          max-width: 620px;
+          max-width: 650px;
         }
 
         .chapter {
@@ -289,29 +310,30 @@ export default function Experience() {
         }
 
         h2 {
-          font-size: clamp(2.5rem, 5vw, 4.4rem);
-          line-height: 1;
-          margin-bottom: 20px;
-          font-weight: 700;
+          font-size: clamp(3rem, 5vw, 5rem);
+          line-height: 0.95;
+          margin-bottom: 22px;
+          font-weight: 800;
           color: white;
+          letter-spacing: -2px;
         }
 
         .line {
-          width: 90px;
+          width: 100px;
           height: 2px;
           background: linear-gradient(
             to right,
-            rgba(255,255,255,0.8),
+            rgba(255,255,255,0.9),
             rgba(255,255,255,0)
           );
-          margin-bottom: 28px;
+          margin-bottom: 30px;
         }
 
         .storyText {
-          font-size: 1.28rem;
+          font-size: 1.35rem;
           line-height: 2;
-          opacity: 0.9;
-          color: rgba(255,255,255,0.86);
+          opacity: 0.92;
+          color: rgba(255,255,255,0.88);
         }
 
         /* ANIMATIONS */
@@ -362,42 +384,37 @@ export default function Experience() {
           }
 
           .storyText {
-            font-size: 1.08rem;
-            line-height: 1.95;
+            font-size: 1.12rem;
+            line-height: 2;
           }
 
           h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             letter-spacing: -2px;
           }
 
           h2 {
-            font-size: 3rem;
+            font-size: 3.3rem;
+          }
+
+          .heroText {
+            font-size: 1.12rem;
           }
 
           .line {
-            margin: 0 auto 28px auto;
+            margin: 0 auto 30px auto;
           }
 
           .orb1 {
-            width: 260px;
-            height: 260px;
-            filter: blur(70px);
-            opacity: 1;
+            opacity: 0.85;
           }
 
           .orb2 {
-            width: 220px;
-            height: 220px;
-            filter: blur(60px);
-            opacity: 0.9;
+            opacity: 0.7;
           }
 
           .orb3 {
-            width: 200px;
-            height: 200px;
-            filter: blur(60px);
-            opacity: 0.9;
+            opacity: 0.7;
           }
         }
       `}</style>
