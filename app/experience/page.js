@@ -3,53 +3,63 @@
 const memories = [
   {
     image: "/images/m1.jpg",
+    title: "The Beginning",
     text:
-      "Every story begins before it is understood. This is the foundation of a memory transformed into cinematic storytelling."
+      "Every story begins before it is understood. This is the foundation of a memory you didn’t realize you were already building — captured as a cinematic moment and preserved as a digital atlas."
   },
   {
     image: "/images/m2.jpg",
+    title: "A Different Feeling",
     text:
-      "Turn meaningful emotions into elegant visual narratives designed to feel timeless."
+      "Turn meaningful emotions into elegant visual narratives designed to feel timeless, immersive and unforgettable."
   },
   {
     image: "/images/m3.jpg",
+    title: "Moments",
     text:
-      "Curated layouts, cinematic pacing, and emotional storytelling combined into one immersive experience."
+      "Transform conversations into curated memory galleries where every interaction becomes part of a larger cinematic story."
   },
   {
     image: "/images/m4.jpg",
+    title: "Ordinary Days",
     text:
-      "Preserve ordinary moments in extraordinary ways through premium digital atlas design."
+      "Even the smallest days deserve cinematic preservation. We transform ordinary moments into timeless visual experiences."
   },
   {
     image: "/images/m5.jpg",
+    title: "Laughter",
     text:
-      "Every memory becomes part of a structured emotional journey crafted for modern storytelling."
+      "Every laugh becomes a frame. Every memory becomes part of a carefully crafted emotional timeline designed to be relived."
   },
   {
     image: "/images/m6.jpg",
+    title: "Connection",
     text:
-      "Milestones deserve elegant presentation. We transform moments into visual experiences worth revisiting."
+      "Milestones deserve more than memory — they deserve presentation. We turn moments into premium visual storytelling experiences."
   },
   {
     image: "/images/m7.jpg",
+    title: "Comfort",
     text:
-      "Beautiful memories deserve more than storage — they deserve cinematic preservation."
+      "Beautiful memories deserve more than storage. Atmosphere, emotion and connection are transformed into cinematic preservation."
   },
   {
     image: "/images/m8.jpg",
+    title: "Presence",
     text:
-      "Every atlas is uniquely designed to reflect emotion, atmosphere, and connection."
+      "Home is not a place — it is a sequence of moments. Every atlas is uniquely designed to reflect emotion, tone and belonging."
   },
   {
     image: "/images/m9.jpg",
+    title: "Growth",
     text:
-      "From relationships to anniversaries, your story becomes a premium interactive experience."
+      "From first meetings to anniversaries, document your evolution through immersive digital storytelling."
   },
   {
     image: "/images/m10.jpg",
+    title: "Your Atlas",
     text:
-      "Atlas Showcase blends design, emotion, and storytelling into unforgettable digital memories."
+      "Eventually experiences become worth preserving forever. Atlas blends design, emotion and storytelling into unforgettable digital memories."
   }
 ];
 
@@ -57,13 +67,16 @@ export default function Experience() {
   return (
     <main className="main">
 
-      {/* BACKGROUND LIGHTS */}
+      {/* BACKGROUND ORBS */}
       <div className="orb orb1"></div>
       <div className="orb orb2"></div>
       <div className="orb orb3"></div>
 
       {/* HERO */}
       <section className="intro">
+
+        <div className="heroGlow"></div>
+
         <p className="mini">
           ATLAS SHOWCASE
         </p>
@@ -77,6 +90,11 @@ export default function Experience() {
           Personalized digital atlases crafted for relationships,
           anniversaries, milestones and unforgettable moments.
         </p>
+
+        <div className="scroll">
+          SCROLL TO EXPERIENCE
+        </div>
+
       </section>
 
       {/* STORY */}
@@ -85,22 +103,39 @@ export default function Experience() {
           key={i}
           className={`scene ${i % 2 === 0 ? "" : "reverse"}`}
         >
+
           <div className="imageWrap">
-            <img src={m.image} alt="" />
+            <img src={m.image} alt={m.title} />
           </div>
 
           <div className="textWrap">
-            <p>{m.text}</p>
+
+            <p className="chapter">
+              CHAPTER {String(i + 1).padStart(2, "0")}
+            </p>
+
+            <h2>
+              {m.title}
+            </h2>
+
+            <div className="line"></div>
+
+            <p className="storyText">
+              {m.text}
+            </p>
+
           </div>
+
         </section>
       ))}
 
       <style jsx>{`
         .main {
           background:
-            radial-gradient(circle at top left, #101325 0%, #050507 45%),
-            radial-gradient(circle at bottom right, #14091f 0%, #050507 50%),
+            radial-gradient(circle at top left, #11162b 0%, #050507 45%),
+            radial-gradient(circle at bottom right, #180a22 0%, #050507 50%),
             #050507;
+
           color: white;
           overflow-x: hidden;
           position: relative;
@@ -121,7 +156,7 @@ export default function Experience() {
         .orb1 {
           width: 520px;
           height: 520px;
-          background: rgba(100, 90, 255, 0.45);
+          background: rgba(110, 90, 255, 0.45);
           top: -140px;
           left: -120px;
           filter: blur(110px);
@@ -130,7 +165,7 @@ export default function Experience() {
         .orb2 {
           width: 420px;
           height: 420px;
-          background: rgba(0, 200, 255, 0.3);
+          background: rgba(0, 210, 255, 0.32);
           right: -120px;
           top: 35%;
           filter: blur(100px);
@@ -140,15 +175,17 @@ export default function Experience() {
         .orb3 {
           width: 360px;
           height: 360px;
-          background: rgba(255, 70, 170, 0.25);
+          background: rgba(255, 70, 180, 0.25);
           bottom: -120px;
           left: 25%;
           filter: blur(100px);
           animation-delay: 6s;
         }
 
+        /* HERO */
+
         .intro {
-          min-height: 85vh;
+          min-height: 100vh;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -159,34 +196,55 @@ export default function Experience() {
           z-index: 2;
         }
 
+        .heroGlow {
+          position: absolute;
+          width: 600px;
+          height: 600px;
+          background: rgba(120,120,255,0.08);
+          filter: blur(120px);
+          border-radius: 50%;
+          z-index: -1;
+        }
+
         .mini {
-          letter-spacing: 6px;
+          letter-spacing: 8px;
           opacity: 0.65;
           margin-bottom: 24px;
           font-size: 0.9rem;
         }
 
         h1 {
-          font-size: clamp(3rem, 8vw, 6.5rem);
-          line-height: 0.95;
-          max-width: 900px;
-          margin-bottom: 28px;
+          font-size: clamp(4rem, 9vw, 7.5rem);
+          line-height: 0.92;
+          max-width: 980px;
+          margin-bottom: 32px;
           font-weight: 700;
+          letter-spacing: -3px;
         }
 
         .heroText {
-          max-width: 760px;
-          font-size: 1.15rem;
+          max-width: 820px;
+          font-size: 1.35rem;
           line-height: 2;
-          opacity: 0.82;
+          opacity: 0.84;
         }
+
+        .scroll {
+          margin-top: 60px;
+          opacity: 0.45;
+          letter-spacing: 4px;
+          font-size: 0.8rem;
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* SCENES */
 
         .scene {
           min-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 90px;
+          gap: 100px;
           padding: 120px 8%;
           position: relative;
           z-index: 2;
@@ -198,34 +256,65 @@ export default function Experience() {
 
         .imageWrap {
           flex: 1;
-          max-width: 440px;
+          max-width: 460px;
+          position: relative;
         }
 
         .imageWrap img {
           width: 100%;
-          border-radius: 28px;
+          border-radius: 30px;
           object-fit: cover;
+
           box-shadow:
-            0 30px 80px rgba(0,0,0,0.75),
+            0 30px 90px rgba(0,0,0,0.75),
             0 0 60px rgba(255,255,255,0.05);
+
           transition: all 0.5s ease;
         }
 
         .imageWrap img:hover {
-          transform: scale(1.03);
+          transform: scale(1.03) translateY(-6px);
         }
 
         .textWrap {
           flex: 1;
-          max-width: 560px;
+          max-width: 620px;
         }
 
-        .textWrap p {
-          font-size: 1.12rem;
+        .chapter {
+          letter-spacing: 5px;
+          font-size: 0.85rem;
+          opacity: 0.5;
+          margin-bottom: 18px;
+        }
+
+        h2 {
+          font-size: clamp(2.5rem, 5vw, 4.4rem);
+          line-height: 1;
+          margin-bottom: 20px;
+          font-weight: 700;
+          color: white;
+        }
+
+        .line {
+          width: 90px;
+          height: 2px;
+          background: linear-gradient(
+            to right,
+            rgba(255,255,255,0.8),
+            rgba(255,255,255,0)
+          );
+          margin-bottom: 28px;
+        }
+
+        .storyText {
+          font-size: 1.28rem;
           line-height: 2;
           opacity: 0.9;
           color: rgba(255,255,255,0.86);
         }
+
+        /* ANIMATIONS */
 
         @keyframes float {
           0% {
@@ -241,30 +330,54 @@ export default function Experience() {
           }
         }
 
+        @keyframes pulse {
+          0% {
+            opacity: 0.3;
+          }
+
+          50% {
+            opacity: 0.7;
+          }
+
+          100% {
+            opacity: 0.3;
+          }
+        }
+
+        /* MOBILE */
+
         @media (max-width: 900px) {
+
           .scene,
           .reverse {
             flex-direction: column !important;
             text-align: center;
-            gap: 45px;
+            gap: 50px;
             padding: 90px 24px;
           }
 
           .imageWrap {
             width: 100%;
-            max-width: 340px;
+            max-width: 350px;
           }
 
-          .textWrap p {
-            font-size: 1rem;
-            line-height: 1.9;
+          .storyText {
+            font-size: 1.08rem;
+            line-height: 1.95;
           }
 
           h1 {
-            font-size: 3.2rem;
+            font-size: 4rem;
+            letter-spacing: -2px;
           }
 
-          /* STRONGER MOBILE GLOW */
+          h2 {
+            font-size: 3rem;
+          }
+
+          .line {
+            margin: 0 auto 28px auto;
+          }
 
           .orb1 {
             width: 260px;
