@@ -67,8 +67,6 @@ export default function Experience() {
   return (
     <main className="main">
 
-      <div className="noise"></div>
-
       {/* ORBS */}
       <div className="orb orb1"></div>
       <div className="orb orb2"></div>
@@ -112,6 +110,9 @@ export default function Experience() {
 
           <div className="textWrap">
 
+            {/* LIQUID EDGE LIGHT */}
+            <div className="glassEdge"></div>
+
             <p className="chapter">
               CHAPTER {String(i + 1).padStart(2, "0")}
             </p>
@@ -131,27 +132,53 @@ export default function Experience() {
         </section>
       ))}
 
+      {/* FINAL CTA */}
+
+      <section className="finale">
+
+        <div className="finalGlass">
+
+          <p className="finalMini">
+            CREATE YOUR ATLAS
+          </p>
+
+          <h3>
+            Preserve your memories
+            in cinematic wonder.
+          </h3>
+
+          <p className="finalText">
+            Atlas transforms relationships, milestones and unforgettable
+            experiences into premium cinematic digital storytelling.
+          </p>
+
+          <div className="contact">
+            <p>
+              lesliejere2323@gmail.com
+            </p>
+
+            <span></span>
+
+            <p>
+              0784497531
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
       <style jsx>{`
         .main {
           background:
-            radial-gradient(circle at top left, #12172c 0%, #050507 45%),
-            radial-gradient(circle at bottom right, #1a0b22 0%, #050507 50%),
+            radial-gradient(circle at top left, #11162b 0%, #050507 45%),
+            radial-gradient(circle at bottom right, #180a22 0%, #050507 50%),
             #050507;
 
           color: white;
           overflow-x: hidden;
           position: relative;
           isolation: isolate;
-        }
-
-        .noise {
-          position: fixed;
-          inset: 0;
-          opacity: 0.035;
-          background-image:
-            url("https://grainy-gradients.vercel.app/noise.svg");
-          pointer-events: none;
-          z-index: 1;
         }
 
         /* ORBS */
@@ -163,13 +190,12 @@ export default function Experience() {
           z-index: 0;
           animation: float 18s ease-in-out infinite;
           mix-blend-mode: screen;
-          will-change: transform;
         }
 
         .orb1 {
           width: 520px;
           height: 520px;
-          background: rgba(110, 90, 255, 0.38);
+          background: rgba(110, 90, 255, 0.45);
           top: -140px;
           left: -120px;
           filter: blur(110px);
@@ -178,7 +204,7 @@ export default function Experience() {
         .orb2 {
           width: 420px;
           height: 420px;
-          background: rgba(0, 210, 255, 0.28);
+          background: rgba(0, 210, 255, 0.3);
           right: -120px;
           top: 35%;
           filter: blur(100px);
@@ -211,48 +237,39 @@ export default function Experience() {
 
         .heroGlow {
           position: absolute;
-          width: 700px;
-          height: 700px;
+          width: 600px;
+          height: 600px;
           background: rgba(120,120,255,0.08);
-          filter: blur(140px);
+          filter: blur(120px);
           border-radius: 50%;
           z-index: -1;
         }
 
         .mini {
           letter-spacing: 8px;
-          opacity: 0.7;
+          opacity: 0.65;
           margin-bottom: 24px;
           font-size: 0.9rem;
         }
 
         h1 {
-          font-size: clamp(4.4rem, 9vw, 8rem);
-          line-height: 0.9;
-          max-width: 1050px;
-          margin-bottom: 34px;
-          font-weight: 800;
-          letter-spacing: -4px;
-
-          background: linear-gradient(
-            to bottom,
-            #ffffff,
-            rgba(255,255,255,0.82)
-          );
-
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          font-size: clamp(4rem, 9vw, 7.5rem);
+          line-height: 0.92;
+          max-width: 980px;
+          margin-bottom: 32px;
+          font-weight: 700;
+          letter-spacing: -3px;
         }
 
         .heroText {
-          max-width: 850px;
-          font-size: 1.42rem;
+          max-width: 820px;
+          font-size: 1.35rem;
           line-height: 2;
           opacity: 0.84;
         }
 
         .scroll {
-          margin-top: 70px;
+          margin-top: 60px;
           opacity: 0.45;
           letter-spacing: 4px;
           font-size: 0.8rem;
@@ -266,8 +283,8 @@ export default function Experience() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 110px;
-          padding: 140px 9%;
+          gap: 100px;
+          padding: 120px 8%;
           position: relative;
           z-index: 2;
         }
@@ -278,62 +295,224 @@ export default function Experience() {
 
         .imageWrap {
           flex: 1;
-          max-width: 470px;
+          max-width: 460px;
         }
 
         .imageWrap img {
           width: 100%;
-          border-radius: 32px;
+          border-radius: 42px;
           object-fit: cover;
 
           box-shadow:
-            0 30px 100px rgba(0,0,0,0.8),
+            0 30px 90px rgba(0,0,0,0.75),
             0 0 60px rgba(255,255,255,0.04);
 
-          transition: all 0.6s ease;
+          transition:
+            transform 0.45s ease,
+            box-shadow 0.45s ease;
         }
 
         .imageWrap img:hover {
-          transform: scale(1.03) translateY(-8px);
+          transform: translateY(-8px) scale(1.02);
         }
+
+        /* LIQUID GLASS */
 
         .textWrap {
           flex: 1;
-          max-width: 650px;
+          max-width: 620px;
+
+          position: relative;
+
+          padding: 58px 54px;
+
+          border-radius: 46px;
+
+          background:
+            linear-gradient(
+              135deg,
+              rgba(255,255,255,0.13),
+              rgba(255,255,255,0.045)
+            );
+
+          backdrop-filter: blur(36px) saturate(170%);
+          -webkit-backdrop-filter: blur(36px) saturate(170%);
+
+          border: 1px solid rgba(255,255,255,0.14);
+
+          box-shadow:
+            inset 0 1px 1px rgba(255,255,255,0.2),
+            inset 0 -1px 1px rgba(255,255,255,0.04),
+            0 25px 80px rgba(0,0,0,0.45);
+
+          overflow: hidden;
+
+          transition:
+            transform 0.45s ease,
+            box-shadow 0.45s ease;
+        }
+
+        /* LIQUID EDGE REFRACTION */
+
+        .glassEdge {
+          position: absolute;
+          inset: 0;
+
+          border-radius: inherit;
+
+          background:
+            radial-gradient(
+              circle at top left,
+              rgba(255,255,255,0.28),
+              transparent 30%
+            ),
+            radial-gradient(
+              circle at bottom right,
+              rgba(0,220,255,0.12),
+              transparent 30%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(255,255,255,0.18),
+              transparent 24%
+            );
+
+          opacity: 0.9;
+
+          pointer-events: none;
+        }
+
+        .textWrap::before {
+          content: "";
+
+          position: absolute;
+          inset: 1px;
+
+          border-radius: inherit;
+
+          border: 1px solid rgba(255,255,255,0.05);
+
+          pointer-events: none;
+        }
+
+        .textWrap:hover {
+          transform: translateY(-6px);
+
+          box-shadow:
+            inset 0 1px 1px rgba(255,255,255,0.22),
+            inset 0 -1px 1px rgba(255,255,255,0.05),
+            0 35px 110px rgba(0,0,0,0.55);
         }
 
         .chapter {
-          letter-spacing: 5px;
-          font-size: 0.85rem;
-          opacity: 0.5;
-          margin-bottom: 18px;
+          letter-spacing: 6px;
+          font-size: 0.82rem;
+          opacity: 0.52;
+          margin-bottom: 22px;
         }
 
         h2 {
-          font-size: clamp(3rem, 5vw, 5rem);
+          font-size: clamp(2.8rem, 5vw, 4.8rem);
           line-height: 0.95;
-          margin-bottom: 22px;
-          font-weight: 800;
-          color: white;
-          letter-spacing: -2px;
+          margin-bottom: 24px;
+          font-weight: 700;
+          color: rgba(255,255,255,0.97);
         }
 
         .line {
-          width: 100px;
-          height: 2px;
-          background: linear-gradient(
-            to right,
-            rgba(255,255,255,0.9),
-            rgba(255,255,255,0)
-          );
-          margin-bottom: 30px;
+          width: 95px;
+          height: 1.5px;
+
+          background:
+            linear-gradient(
+              to right,
+              rgba(255,255,255,0.82),
+              rgba(255,255,255,0)
+            );
+
+          margin-bottom: 32px;
         }
 
         .storyText {
-          font-size: 1.35rem;
-          line-height: 2;
-          opacity: 0.92;
+          font-size: 1.32rem;
+          line-height: 2.1;
+          opacity: 0.9;
           color: rgba(255,255,255,0.88);
+        }
+
+        /* CTA */
+
+        .finale {
+          padding: 140px 24px 180px;
+          position: relative;
+          z-index: 2;
+        }
+
+        .finalGlass {
+          max-width: 1000px;
+          margin: auto;
+
+          padding: 90px 70px;
+
+          border-radius: 54px;
+
+          background:
+            linear-gradient(
+              135deg,
+              rgba(255,255,255,0.12),
+              rgba(255,255,255,0.04)
+            );
+
+          backdrop-filter: blur(40px) saturate(170%);
+          -webkit-backdrop-filter: blur(40px) saturate(170%);
+
+          border: 1px solid rgba(255,255,255,0.12);
+
+          text-align: center;
+
+          box-shadow:
+            inset 0 1px 1px rgba(255,255,255,0.16),
+            0 30px 100px rgba(0,0,0,0.5);
+        }
+
+        .finalMini {
+          letter-spacing: 8px;
+          opacity: 0.55;
+          margin-bottom: 26px;
+        }
+
+        h3 {
+          font-size: clamp(3rem, 7vw, 6rem);
+          line-height: 0.95;
+          margin-bottom: 28px;
+        }
+
+        .finalText {
+          max-width: 760px;
+          margin: auto;
+          font-size: 1.2rem;
+          line-height: 2;
+          opacity: 0.82;
+        }
+
+        .contact {
+          margin-top: 50px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 24px;
+
+          flex-wrap: wrap;
+
+          opacity: 0.72;
+        }
+
+        .contact span {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.45);
         }
 
         /* ANIMATIONS */
@@ -383,38 +562,57 @@ export default function Experience() {
             max-width: 350px;
           }
 
+          .textWrap {
+            padding: 42px 32px;
+            border-radius: 38px;
+          }
+
           .storyText {
-            font-size: 1.12rem;
+            font-size: 1.08rem;
             line-height: 2;
           }
 
           h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             letter-spacing: -2px;
           }
 
           h2 {
-            font-size: 3.3rem;
+            font-size: 3.2rem;
           }
 
-          .heroText {
-            font-size: 1.12rem;
+          h3 {
+            font-size: 3.5rem;
           }
 
           .line {
-            margin: 0 auto 30px auto;
+            margin: 0 auto 28px auto;
+          }
+
+          .finalGlass {
+            padding: 70px 34px;
+            border-radius: 42px;
           }
 
           .orb1 {
-            opacity: 0.85;
+            width: 260px;
+            height: 260px;
+            filter: blur(70px);
+            opacity: 1;
           }
 
           .orb2 {
-            opacity: 0.7;
+            width: 220px;
+            height: 220px;
+            filter: blur(60px);
+            opacity: 0.9;
           }
 
           .orb3 {
-            opacity: 0.7;
+            width: 200px;
+            height: 200px;
+            filter: blur(60px);
+            opacity: 0.9;
           }
         }
       `}</style>
